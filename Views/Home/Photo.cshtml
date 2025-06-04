@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "照片";
+    var photos = new List<(string Src, string Caption, string Detail)>
+    {
+        ("p11.JPG", "這是第一張照片","意外的美"),
+        ("p12.jpg", "這是第二張照片","風景真好看"),
+        ("p13.JPG", "這是第三張照片","你要抓幾次太陽阿"),
+        ("p14.jpg", "這是第四張照片","憂鬱少女風"),
+        ("p15.jpg", "這是第五張照片","再來一張"),
+        ("p16.jpg", "這是第六張照片","車上拍的 還不錯"),
+        ("p17.JPG", "這是第七張照片","學校我來了"),
+        ("p18.jpg", "這是第八張照片","什麼是淡水 就是把你但勒水里"),
+        ("p19.JPG", "這是第九張照片","呦呦呦 這小調調"),
+        ("p20.JPG", "這是第十張照片","放學後的天空就是好看"),
+        ("p21.JPG", "這是第十一張照片","小知識這是凌晨5:30的太陽"),
+        ("p22.jpg", "這是第十二張照片","好的~我也忘記這是哪了"),
+        ("p23.JPG", "這是第十三張照片","果然還是夕陽最出片"),
+        ("p24.JPG", "這是第十四張照片","這...這也忘了"),
+        ("p25.JPG", "這是第十五張照片","嗯 監獄風")
+    };
+}
+<div class="container mt-2 mb-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="box text-center p-4">
+                <h1 style="color:#afd6f0">嗨，我是企鵝!</h1>
+                <h3>下面是我的攝影集。</h3>
+                <marquee height="40" scrollamount="10"><font size="4" color="#d9d7db">歡迎看看~ 看好看滿~ 這邊不太好截圖喔 畢竟是偷放的~</font></marquee>
+                <div class="row justify-content-center gx-3">
+                    @foreach (var photo in photos)
+                    {
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="flip-card" onclick="toggleFlip(this)">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/images/@photo.Src" class="img-fluid photo-img" alt="圖片" />
+                                    </div>
+                                    <div class="flip-card-back d-flex flex-column align-items-center justify-content-center">
+                                        <h3 class="text-white text-center mb-2">@photo.Caption</h3>
+                                        <p class="text-dark text-center mb-0">@photo.Detail</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleFlip(card) {
+        card.classList.toggle('flipped');
+    }
+</script>
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
