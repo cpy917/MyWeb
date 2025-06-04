@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "首頁";
+
+}
+@model List<Announcement>
+<div class="container mt-2 mb-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="box text-center p-4">
+                <h1 style="color:#afd6f0">嗨，我是企鵝!</h1>
+                <h3 style="color:#afd6f0">嘉義大學數位學習設計與管理學系的大二生!</h3>
+                <p>
+                    我喜歡攝影，也很愛看群像劇和小說，尤其是那種角色多、情感複雜又寫實、燒腦的故事。<br>
+                    做作業的靈感常常來自半夜不睡覺追劇的瞬間還有咖啡的加持。<br>現在還在慢慢摸索自己真正想做什麼。<br>
+                    網站裡的東西都是我邊學邊做的~歡迎逛逛～
+                </p>
+                <img src="https://i.pinimg.com/1200x/d3/1d/51/d31d51fe4eded61f212f8a94a5696ec0.jpg" class="rounded mx-auto d-block" width="100%" alt="..."><br>
+                <h2 class="mb-4 border-bottom pb-2 text-center" > 最新公告</h2>
+                <marquee height="40" scrollamount="10"><font size="4" color="#d9d7db">大會報告:臨近期末 斷更通知 失聯警告!!</font></marquee>
+                <div class="d-flex justify-content-center">
+                    <div class="announcement-wrapper">
+                        <div class="list-group">
+                            @foreach (var item in Model)
+                            {
+                                <div class="list-group-item announcement-card mb-3">
+                                    <h5 class="fw-bold">@item.Title</h5>
+                                    <small>發布日期：@item.PostDate.ToShortDateString()</small>
+                                    <p class="mt-2">@item.Content</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+   
+</div>
+<style>
+    /* 📢 最新公告區塊容器：設定寬度與置中 */
+    .announcement-wrapper {
+        max-width: 650px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* 📄 單則公告卡片樣式 */
+    .announcement-card {
+        background-color: rgba(164, 157, 204, 0.6); /* 柔霧紫、不會太透明 */
+        border-left: 6px solid #a29bfe; /* 淡紫邊線，作為識別條 */
+        border-top-left-radius: 1rem; /* 左上角圓角 */
+        border-bottom-right-radius: 1rem; /* 右下角圓角 */
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 卡片陰影 */
+        transition: all 0.3s ease;
+    }
+
+        /* ✨ Hover 浮起效果 */
+        .announcement-card:hover {
+            background-color: rgba(164, 157, 204, 0.75);
+            transform: translateY(-2px);
+        }
+
+        /* 📝 公告標題樣式 */
+        .announcement-card h5 {
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+            color: #473d7c;
+        }
+
+        /* 📅 發布日期樣式 */
+        .announcement-card small {
+            font-size: 0.85rem;
+            color: #e2e2e2;
+        }
+
+        /* 📃 內文段落樣式（保留原味） */
+        .announcement-card p {
+            margin-top: 0.75rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+            color: #222;
+        }
+
+</style>
+    
+   
+
+
+    
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+
